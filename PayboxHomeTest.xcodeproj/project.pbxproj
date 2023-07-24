@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AEFF57EBECBCA2C1D7F05FA /* Pods_PayboxHomeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D05078AB50011211A01BE8 /* Pods_PayboxHomeTest.framework */; };
 		CC2A67072A6C8599009A5C45 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A67052A6C8599009A5C45 /* CharacterTableViewCell.swift */; };
 		CC2A67082A6C8599009A5C45 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2A67062A6C8599009A5C45 /* CharacterTableViewCell.xib */; };
+		CC2A67182A6DA950009A5C45 /* RMCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A67172A6DA950009A5C45 /* RMCharacter.swift */; };
+		CC2A671A2A6DAA30009A5C45 /* RMServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A67192A6DAA30009A5C45 /* RMServiceAPI.swift */; };
+		CC2A671C2A6DBC67009A5C45 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A671B2A6DBC67009A5C45 /* Utils.swift */; };
+		CC2A671E2A6DBD88009A5C45 /* AlertableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A671D2A6DBD88009A5C45 /* AlertableProtocol.swift */; };
+		CC2A67202A6DCE0D009A5C45 /* CharacterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A671F2A6DCE0D009A5C45 /* CharacterCellViewModel.swift */; };
+		CC2A67222A6DCE8B009A5C45 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A67212A6DCE8B009A5C45 /* CharactersViewModel.swift */; };
+		CC2A67302A6DE0FA009A5C45 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A672F2A6DE0FA009A5C45 /* CharacterViewModel.swift */; };
 		CCCC05DB2A6C7DDD00E09EF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC05DA2A6C7DDD00E09EF7 /* AppDelegate.swift */; };
 		CCCC05DD2A6C7DDD00E09EF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC05DC2A6C7DDD00E09EF7 /* SceneDelegate.swift */; };
 		CCCC05DF2A6C7DDD00E09EF7 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC05DE2A6C7DDD00E09EF7 /* CharactersListViewController.swift */; };
@@ -19,6 +27,8 @@
 		CCCC05FC2A6C7DE100E09EF7 /* PayboxHomeTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC05FB2A6C7DE100E09EF7 /* PayboxHomeTestUITests.swift */; };
 		CCCC05FE2A6C7DE100E09EF7 /* PayboxHomeTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC05FD2A6C7DE100E09EF7 /* PayboxHomeTestUITestsLaunchTests.swift */; };
 		CCCC060B2A6C7E3300E09EF7 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC060A2A6C7E3300E09EF7 /* CharacterDetailsViewController.swift */; };
+		F0F07FFED4EAA74054BB7619 /* Pods_PayboxHomeTest_PayboxHomeTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C3E50E22E87E5E364C81B9 /* Pods_PayboxHomeTest_PayboxHomeTestUITests.framework */; };
+		FE18BE6B0E8892AA2746AD9F /* Pods_PayboxHomeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D653591646D2EE26111BC995 /* Pods_PayboxHomeTestTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +49,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3960998C87BDC3DACD0C8166 /* Pods-PayboxHomeTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTest.release.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTest/Pods-PayboxHomeTest.release.xcconfig"; sourceTree = "<group>"; };
+		39D05078AB50011211A01BE8 /* Pods_PayboxHomeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PayboxHomeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C3E50E22E87E5E364C81B9 /* Pods_PayboxHomeTest_PayboxHomeTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PayboxHomeTest_PayboxHomeTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FB3849ADF1C91ABAF49ADA8 /* Pods-PayboxHomeTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTestTests.debug.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTestTests/Pods-PayboxHomeTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87FFF7510974C460519DE915 /* Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTest-PayboxHomeTestUITests/Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8CAD2F2C2DBD97DDAEB1C3C5 /* Pods-PayboxHomeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTestTests.release.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTestTests/Pods-PayboxHomeTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		CBC694AE3A0E8639870CEA9F /* Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTest-PayboxHomeTestUITests/Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CC2A67052A6C8599009A5C45 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		CC2A67062A6C8599009A5C45 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
+		CC2A67172A6DA950009A5C45 /* RMCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacter.swift; sourceTree = "<group>"; };
+		CC2A67192A6DAA30009A5C45 /* RMServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMServiceAPI.swift; sourceTree = "<group>"; };
+		CC2A671B2A6DBC67009A5C45 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CC2A671D2A6DBD88009A5C45 /* AlertableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertableProtocol.swift; sourceTree = "<group>"; };
+		CC2A671F2A6DCE0D009A5C45 /* CharacterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModel.swift; sourceTree = "<group>"; };
+		CC2A67212A6DCE8B009A5C45 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
+		CC2A672F2A6DE0FA009A5C45 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		CCCC05D72A6C7DDD00E09EF7 /* PayboxHomeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayboxHomeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCC05DA2A6C7DDD00E09EF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCCC05DC2A6C7DDD00E09EF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +79,8 @@
 		CCCC05FB2A6C7DE100E09EF7 /* PayboxHomeTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayboxHomeTestUITests.swift; sourceTree = "<group>"; };
 		CCCC05FD2A6C7DE100E09EF7 /* PayboxHomeTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayboxHomeTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CCCC060A2A6C7E3300E09EF7 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		D653591646D2EE26111BC995 /* Pods_PayboxHomeTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PayboxHomeTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6B891580CADFDCD8300A758 /* Pods-PayboxHomeTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTest.debug.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTest/Pods-PayboxHomeTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AEFF57EBECBCA2C1D7F05FA /* Pods_PayboxHomeTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE18BE6B0E8892AA2746AD9F /* Pods_PayboxHomeTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +104,113 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F07FFED4EAA74054BB7619 /* Pods_PayboxHomeTest_PayboxHomeTestUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A429C0A26116325A4465470 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6B891580CADFDCD8300A758 /* Pods-PayboxHomeTest.debug.xcconfig */,
+				3960998C87BDC3DACD0C8166 /* Pods-PayboxHomeTest.release.xcconfig */,
+				87FFF7510974C460519DE915 /* Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig */,
+				CBC694AE3A0E8639870CEA9F /* Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig */,
+				7FB3849ADF1C91ABAF49ADA8 /* Pods-PayboxHomeTestTests.debug.xcconfig */,
+				8CAD2F2C2DBD97DDAEB1C3C5 /* Pods-PayboxHomeTestTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC2A67252A6DDF10009A5C45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A671F2A6DCE0D009A5C45 /* CharacterCellViewModel.swift */,
+				CC2A67212A6DCE8B009A5C45 /* CharactersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC2A67262A6DDF33009A5C45 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A671B2A6DBC67009A5C45 /* Utils.swift */,
+				CC2A671D2A6DBD88009A5C45 /* AlertableProtocol.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CC2A67272A6DDF43009A5C45 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A67192A6DAA30009A5C45 /* RMServiceAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CC2A67282A6DDF79009A5C45 /* CharacterDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A672E2A6DE0E8009A5C45 /* ViewModel */,
+				CC2A672C2A6DE04C009A5C45 /* Controller */,
+			);
+			path = CharacterDetailsScreen;
+			sourceTree = "<group>";
+		};
+		CC2A67292A6DDFA3009A5C45 /* CharactersListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A672D2A6DE075009A5C45 /* Model */,
+				CC2A672B2A6DE02C009A5C45 /* Controller */,
+				CC2A672A2A6DE01A009A5C45 /* View */,
+				CC2A67252A6DDF10009A5C45 /* ViewModel */,
+			);
+			path = CharactersListScreen;
+			sourceTree = "<group>";
+		};
+		CC2A672A2A6DE01A009A5C45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A67052A6C8599009A5C45 /* CharacterTableViewCell.swift */,
+				CC2A67062A6C8599009A5C45 /* CharacterTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC2A672B2A6DE02C009A5C45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCCC05DE2A6C7DDD00E09EF7 /* CharactersListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC2A672C2A6DE04C009A5C45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCCC060A2A6C7E3300E09EF7 /* CharacterDetailsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC2A672D2A6DE075009A5C45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A67172A6DA950009A5C45 /* RMCharacter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC2A672E2A6DE0E8009A5C45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A672F2A6DE0FA009A5C45 /* CharacterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CCCC05CE2A6C7DDD00E09EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +218,8 @@
 				CCCC05F02A6C7DE100E09EF7 /* PayboxHomeTestTests */,
 				CCCC05FA2A6C7DE100E09EF7 /* PayboxHomeTestUITests */,
 				CCCC05D82A6C7DDD00E09EF7 /* Products */,
+				8A429C0A26116325A4465470 /* Pods */,
+				F61D0EF88607A4A65F825061 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,16 +236,16 @@
 		CCCC05D92A6C7DDD00E09EF7 /* PayboxHomeTest */ = {
 			isa = PBXGroup;
 			children = (
+				CC2A67292A6DDFA3009A5C45 /* CharactersListScreen */,
+				CC2A67282A6DDF79009A5C45 /* CharacterDetailsScreen */,
+				CC2A67272A6DDF43009A5C45 /* Network */,
+				CC2A67262A6DDF33009A5C45 /* Utilities */,
 				CCCC05DA2A6C7DDD00E09EF7 /* AppDelegate.swift */,
 				CCCC05DC2A6C7DDD00E09EF7 /* SceneDelegate.swift */,
-				CCCC05DE2A6C7DDD00E09EF7 /* CharactersListViewController.swift */,
 				CCCC05E02A6C7DDD00E09EF7 /* Main.storyboard */,
 				CCCC05E32A6C7DE100E09EF7 /* Assets.xcassets */,
 				CCCC05E52A6C7DE100E09EF7 /* LaunchScreen.storyboard */,
 				CCCC05E82A6C7DE100E09EF7 /* Info.plist */,
-				CCCC060A2A6C7E3300E09EF7 /* CharacterDetailsViewController.swift */,
-				CC2A67052A6C8599009A5C45 /* CharacterTableViewCell.swift */,
-				CC2A67062A6C8599009A5C45 /* CharacterTableViewCell.xib */,
 			);
 			path = PayboxHomeTest;
 			sourceTree = "<group>";
@@ -136,6 +267,16 @@
 			path = PayboxHomeTestUITests;
 			sourceTree = "<group>";
 		};
+		F61D0EF88607A4A65F825061 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39D05078AB50011211A01BE8 /* Pods_PayboxHomeTest.framework */,
+				78C3E50E22E87E5E364C81B9 /* Pods_PayboxHomeTest_PayboxHomeTestUITests.framework */,
+				D653591646D2EE26111BC995 /* Pods_PayboxHomeTestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +284,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCCC06012A6C7DE100E09EF7 /* Build configuration list for PBXNativeTarget "PayboxHomeTest" */;
 			buildPhases = (
+				F8FA1E7B1288223924AC172C /* [CP] Check Pods Manifest.lock */,
 				CCCC05D32A6C7DDD00E09EF7 /* Sources */,
 				CCCC05D42A6C7DDD00E09EF7 /* Frameworks */,
 				CCCC05D52A6C7DDD00E09EF7 /* Resources */,
+				71B891DFC871D687E7209680 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCCC06042A6C7DE100E09EF7 /* Build configuration list for PBXNativeTarget "PayboxHomeTestTests" */;
 			buildPhases = (
+				A529CC0B8073FD164682822D /* [CP] Check Pods Manifest.lock */,
 				CCCC05E92A6C7DE100E09EF7 /* Sources */,
 				CCCC05EA2A6C7DE100E09EF7 /* Frameworks */,
 				CCCC05EB2A6C7DE100E09EF7 /* Resources */,
@@ -178,9 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCCC06072A6C7DE100E09EF7 /* Build configuration list for PBXNativeTarget "PayboxHomeTestUITests" */;
 			buildPhases = (
+				E0B657A14CF4624972671582 /* [CP] Check Pods Manifest.lock */,
 				CCCC05F32A6C7DE100E09EF7 /* Sources */,
 				CCCC05F42A6C7DE100E09EF7 /* Frameworks */,
 				CCCC05F52A6C7DE100E09EF7 /* Resources */,
+				7ED4E9D706B5DDCB7D540F1D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,16 +409,126 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		71B891DFC871D687E7209680 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PayboxHomeTest/Pods-PayboxHomeTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PayboxHomeTest/Pods-PayboxHomeTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PayboxHomeTest/Pods-PayboxHomeTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ED4E9D706B5DDCB7D540F1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PayboxHomeTest-PayboxHomeTestUITests/Pods-PayboxHomeTest-PayboxHomeTestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PayboxHomeTest-PayboxHomeTestUITests/Pods-PayboxHomeTest-PayboxHomeTestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PayboxHomeTest-PayboxHomeTestUITests/Pods-PayboxHomeTest-PayboxHomeTestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A529CC0B8073FD164682822D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PayboxHomeTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0B657A14CF4624972671582 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PayboxHomeTest-PayboxHomeTestUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8FA1E7B1288223924AC172C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PayboxHomeTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CCCC05D32A6C7DDD00E09EF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2A67222A6DCE8B009A5C45 /* CharactersViewModel.swift in Sources */,
 				CCCC05DF2A6C7DDD00E09EF7 /* CharactersListViewController.swift in Sources */,
 				CCCC060B2A6C7E3300E09EF7 /* CharacterDetailsViewController.swift in Sources */,
+				CC2A671A2A6DAA30009A5C45 /* RMServiceAPI.swift in Sources */,
+				CC2A67302A6DE0FA009A5C45 /* CharacterViewModel.swift in Sources */,
+				CC2A671E2A6DBD88009A5C45 /* AlertableProtocol.swift in Sources */,
 				CC2A67072A6C8599009A5C45 /* CharacterTableViewCell.swift in Sources */,
+				CC2A67182A6DA950009A5C45 /* RMCharacter.swift in Sources */,
 				CCCC05DB2A6C7DDD00E09EF7 /* AppDelegate.swift in Sources */,
 				CCCC05DD2A6C7DDD00E09EF7 /* SceneDelegate.swift in Sources */,
+				CC2A67202A6DCE0D009A5C45 /* CharacterCellViewModel.swift in Sources */,
+				CC2A671C2A6DBC67009A5C45 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +700,7 @@
 		};
 		CCCC06022A6C7DE100E09EF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6B891580CADFDCD8300A758 /* Pods-PayboxHomeTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -457,6 +714,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,6 +730,7 @@
 		};
 		CCCC06032A6C7DE100E09EF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3960998C87BDC3DACD0C8166 /* Pods-PayboxHomeTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -485,6 +744,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -500,6 +760,7 @@
 		};
 		CCCC06052A6C7DE100E09EF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FB3849ADF1C91ABAF49ADA8 /* Pods-PayboxHomeTestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +781,7 @@
 		};
 		CCCC06062A6C7DE100E09EF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CAD2F2C2DBD97DDAEB1C3C5 /* Pods-PayboxHomeTestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -540,6 +802,7 @@
 		};
 		CCCC06082A6C7DE100E09EF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87FFF7510974C460519DE915 /* Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -558,6 +821,7 @@
 		};
 		CCCC06092A6C7DE100E09EF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBC694AE3A0E8639870CEA9F /* Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

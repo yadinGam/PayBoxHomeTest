@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CharacterTableViewCell: UITableViewCell {
 
@@ -21,9 +22,9 @@ class CharacterTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(name: String) {
-        self.nameLabel.text = name
-        self.statusLabel.text = "this is the status"
+    func configure(with viewModel: RMCharacterCellViewModelProtocol) {
+        self.nameLabel.text = viewModel.name
+        self.statusLabel.text = viewModel.name
+        self.characterImageView.sd_setImage(with: viewModel.imageUrl, placeholderImage: UIImage(named: "placeholder.png"))
     }
-    
 }
