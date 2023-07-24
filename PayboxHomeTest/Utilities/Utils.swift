@@ -10,7 +10,7 @@ import Foundation
 func generateRandomNumbers(by amount: Int, from lowerBound: Int, to upperBound: Int) -> [Int] {
     var randomNumbers = [Int]()
     
-    for i in 0..<amount {
+    for _ in 0..<amount {
         let randomNumber = Int.random(in: lowerBound...upperBound)
         randomNumbers.append(randomNumber)
     }

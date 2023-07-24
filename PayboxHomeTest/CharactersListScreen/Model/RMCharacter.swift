@@ -37,11 +37,11 @@ extension RMCharacter {
     
     var locationsIds: [IdType] {
         var ids = [IdType]()
-        if let originId = self.origin?.IdFromLocation {
+        if let _ = self.origin?.IdFromLocation {
             ids.append(.origin)
         }
         
-        if let locationId = self.location?.IdFromLocation {
+        if let _ = self.location?.IdFromLocation {
             ids.append(.location)
         }
         
