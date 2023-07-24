@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6AEFF57EBECBCA2C1D7F05FA /* Pods_PayboxHomeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D05078AB50011211A01BE8 /* Pods_PayboxHomeTest.framework */; };
+		CC023E7B2A6EBA8300D6CC9B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC023E7A2A6EBA8300D6CC9B /* Storyboarded.swift */; };
 		CC2A67072A6C8599009A5C45 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A67052A6C8599009A5C45 /* CharacterTableViewCell.swift */; };
 		CC2A67082A6C8599009A5C45 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2A67062A6C8599009A5C45 /* CharacterTableViewCell.xib */; };
 		CC2A67182A6DA950009A5C45 /* RMCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2A67172A6DA950009A5C45 /* RMCharacter.swift */; };
@@ -56,6 +57,7 @@
 		87FFF7510974C460519DE915 /* Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTest-PayboxHomeTestUITests/Pods-PayboxHomeTest-PayboxHomeTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CAD2F2C2DBD97DDAEB1C3C5 /* Pods-PayboxHomeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTestTests.release.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTestTests/Pods-PayboxHomeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		CBC694AE3A0E8639870CEA9F /* Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig"; path = "Target Support Files/Pods-PayboxHomeTest-PayboxHomeTestUITests/Pods-PayboxHomeTest-PayboxHomeTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CC023E7A2A6EBA8300D6CC9B /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		CC2A67052A6C8599009A5C45 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		CC2A67062A6C8599009A5C45 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		CC2A67172A6DA950009A5C45 /* RMCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacter.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				CC2A671B2A6DBC67009A5C45 /* Utils.swift */,
 				CC2A671D2A6DBD88009A5C45 /* AlertableProtocol.swift */,
+				CC023E7A2A6EBA8300D6CC9B /* Storyboarded.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				CCCC060B2A6C7E3300E09EF7 /* CharacterDetailsViewController.swift in Sources */,
 				CC2A671A2A6DAA30009A5C45 /* RMServiceAPI.swift in Sources */,
 				CC2A67302A6DE0FA009A5C45 /* CharacterViewModel.swift in Sources */,
+				CC023E7B2A6EBA8300D6CC9B /* Storyboarded.swift in Sources */,
 				CC2A671E2A6DBD88009A5C45 /* AlertableProtocol.swift in Sources */,
 				CC2A67072A6C8599009A5C45 /* CharacterTableViewCell.swift in Sources */,
 				CC2A67182A6DA950009A5C45 /* RMCharacter.swift in Sources */,

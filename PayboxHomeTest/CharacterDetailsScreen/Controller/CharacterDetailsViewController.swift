@@ -7,17 +7,19 @@
 
 import UIKit
 
-class CharacterDetailsViewController: UIViewController {
+class CharacterDetailsViewController: UIViewController, Storyborded {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var originNameLabel: UILabel!
     @IBOutlet weak var originTypeLabel: UILabel!
+    @IBOutlet weak var originDimensionLabel: UILabel!
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var locationTypeLabel: UILabel!
+    @IBOutlet weak var locationDimensionLabel: UILabel!
     
-    private var viewModel: CharacterViewModelProtocol?
+    var viewModel: CharacterViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +34,23 @@ class CharacterDetailsViewController: UIViewController {
         }
         
         self.nameLabel.text = viewModel.name
+        
+        if (viewModel.status.lowercased() == "dead") {
+            self.statusLabel.textColor = .red
+        } else if (viewModel.status.lowercased() == "alive") {
+            self.statusLabel.textColor = .green
+        }
+        
         self.statusLabel.text = viewModel.status
+        
         self.characterImageView.sd_setImage(with: viewModel.imageUrl, placeholderImage: UIImage(named: "placeholder.png"))
-        self.originNameLabel.text = viewModel.name
-        self.originTypeLabel.text = viewModel.name
-        self.locationNameLabel.text = viewModel.name
-        self.locationTypeLabel.text = viewModel.name
+        
+        self.originNameLabel.text = viewModel.originName
+        self.originTypeLabel.text = viewModel.originType
+        self.originDimensionLabel.text = viewModel.originDimesion
+        
+        self.locationNameLabel.text = viewModel.locationName
+        self.locationTypeLabel.text = viewModel.locationType
+        self.locationDimensionLabel.text = viewModel.locationDimesion
     }
 }

@@ -21,12 +21,13 @@ enum PBError: Error {
 }
 
 typealias RMCharactersCompletion = (PBResult<[RMCharacter]>) ->()
-typealias RMLocationCompletion = (PBResult<[RMLocation]>) ->()
+typealias RMLocationCompletion = (PBResult<RMLocation>) ->()
+typealias RMLocationsCompletion = (PBResult<[RMLocation]>) ->()
 
 protocol RickAndMortyApi {
     func getCharacters(by amount: Int, completion: @escaping RMCharactersCompletion)
-    func getLocation(by id: Int, completion: @escaping RMLocationCompletion)
-    func getLocations(by ids: [Int], completion: @escaping RMLocationCompletion)
+    func getLocations(by ids: [Int], completion: @escaping RMLocationsCompletion)
+    func getLocation(by ids: [Int], completion: @escaping RMLocationCompletion)
 }
 
 class RMService: RickAndMortyApi {
@@ -69,12 +70,40 @@ class RMService: RickAndMortyApi {
         
         task.resume()
     }
-    
-    func getLocation(by id: Int, completion: @escaping RMLocationCompletion) {
-        self.getLocations(by: [id], completion: completion)
+
+    func getLocation(by ids: [Int], completion: @escaping RMLocationCompletion) {
+        let idsList = ids.map { String($0) }.joined(separator: ",")
+        let fullUrl = baseUrl+locationEndPoint+idsList
+        
+        guard let url = URL(string: fullUrl) else {
+            return completion(.failure(.invalidURL))
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                completion(.failure(.networkError(error)))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.dataNotFound))
+                return
+            }
+            
+            do {
+                let decodedObject = try JSONDecoder().decode(RMLocation.self, from: data)
+                completion(.success(decodedObject))
+            } catch {
+                completion(.failure(.serializationError(error)))
+            }
+        }
+        
+        task.resume()
     }
     
-    func getLocations(by ids: [Int], completion: @escaping RMLocationCompletion) {
+    func getLocations(by ids: [Int], completion: @escaping RMLocationsCompletion) {
         let idsList = ids.map { String($0) }.joined(separator: ",")
         let fullUrl = baseUrl+locationEndPoint+idsList
         

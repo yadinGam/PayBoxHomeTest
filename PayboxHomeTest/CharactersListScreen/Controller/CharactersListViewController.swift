@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CharactersListViewController: UIViewController, Alertable {
+class CharactersListViewController: UIViewController, Alertable, Storyborded {
 
     @IBOutlet weak var charactersTableView: UITableView!
     
@@ -52,27 +52,33 @@ class CharactersListViewController: UIViewController, Alertable {
             cell.configure(with: CharacterCellViewModel(character: item))
         }.disposed(by: bag)
         
-//        charactersTableView.rx.modelSelected(RMCharacter.self).bind { [weak self] model in
-//            let detailsViewModel = CharacterViewModel(with: model)
-//            //TODO: move to next screen
-//            print(detailsViewModel)
-//        }.disposed(by: bag)
-        
         charactersTableView.rx.itemSelected
             .bind { [weak self] indexPath in
                 guard let self = self else {
                     return
                 }
-                let detailsViewModel = self.viewModel?.charactersViewModels.value[indexPath.row]
                 // TODO: make a service call to bring the location for the specific character and move to the next screen using 'detailsViewModel'
-                print("Selected Model: \(String(describing: detailsViewModel))")
-                
-     
+                self.viewModel?.modelSelected(index: indexPath.row)
                 self.charactersTableView.deselectRow(at: indexPath, animated: true)
             }
             .disposed(by: bag)
+        
+        self.viewModel?.selectedDetails
+            .subscribe(onNext: { [weak self] details in
+                DispatchQueue.main.async {
+                    self?.moveToDetailsScreen(with: details)
+                }
+            })
+            .disposed(by: bag)
     }
 
+    private func moveToDetailsScreen(with character: RMCharacter) {
+        let vc = CharacterDetailsViewController.instantiate()
+        let viewModel = CharacterViewModel(with: character)
+        vc.viewModel = viewModel
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension CharactersListViewController {

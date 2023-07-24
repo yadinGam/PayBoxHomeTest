@@ -19,7 +19,7 @@ protocol CharacterViewModelProtocol {
     var locationDimesion: String { get }
 }
 
-class CharacterViewModel: CharacterViewModelProtocol {
+struct CharacterViewModel: CharacterViewModelProtocol {
     
     var imageUrl: URL?
     var name: String
