@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class CharactersListViewController: UIViewController, Alertable, Storyborded {
-
+    
     @IBOutlet weak var charactersTableView: UITableView!
     
     private var indicatorView = UIActivityIndicatorView()
@@ -25,6 +25,7 @@ class CharactersListViewController: UIViewController, Alertable, Storyborded {
         bindIndicatorView()
         setupTableView()
         viewModel?.fetchCharacters()
+        bindErrorBehavior()
     }
     
     private func setupTableView() {
@@ -36,12 +37,22 @@ class CharactersListViewController: UIViewController, Alertable, Storyborded {
         self.bindTableViewData()
     }
     
+    private func bindErrorBehavior() {
+        viewModel?.errorBehavior.asObservable().skip(1).subscribe(onNext: { [weak self] error in
+            DispatchQueue.main.async {
+                self?.presentAlert(title: "Service failure", message: "Service failed with error: \(error?.localizedDescription ?? "no errorfound")", buttonTitle: "OK")
+            }
+        }).disposed(by: bag)
+    }
+    
     private func bindIndicatorView() {
         viewModel?.loadingBehavior.subscribe(onNext: { [weak self] isLoading in
-            if (isLoading){
-                self?.addActivityIndicator()
-            } else {
-                self?.removeIndicatorView()
+            DispatchQueue.main.async {
+                if (isLoading){
+                    self?.addActivityIndicator()
+                } else {
+                    self?.removeIndicatorView()
+                }
             }
         }).disposed(by: bag)
     }
@@ -57,7 +68,6 @@ class CharactersListViewController: UIViewController, Alertable, Storyborded {
                 guard let self = self else {
                     return
                 }
-                // TODO: make a service call to bring the location for the specific character and move to the next screen using 'detailsViewModel'
                 self.viewModel?.modelSelected(index: indexPath.row)
                 self.charactersTableView.deselectRow(at: indexPath, animated: true)
             }
@@ -71,7 +81,7 @@ class CharactersListViewController: UIViewController, Alertable, Storyborded {
             })
             .disposed(by: bag)
     }
-
+    
     private func moveToDetailsScreen(with character: RMCharacter) {
         let vc = CharacterDetailsViewController.instantiate()
         let viewModel = CharacterViewModel(with: character)
@@ -87,9 +97,9 @@ extension CharactersListViewController {
         self.view.addSubview(indicatorView)
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         let xConstraint = NSLayoutConstraint(item: self.indicatorView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
-
+        
         let yConstraint = NSLayoutConstraint(item: self.indicatorView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
-
+        
         NSLayoutConstraint.activate([xConstraint, yConstraint])
         
         indicatorView.startAnimating()

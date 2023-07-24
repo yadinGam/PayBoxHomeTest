@@ -8,8 +8,8 @@
 import Foundation
 
 enum IdType {
-    case origin(Int)
-    case location(Int)
+    case origin
+    case location
 }
 
 struct RMCharacter: Codable {
@@ -18,13 +18,6 @@ struct RMCharacter: Codable {
     var origin: RMLocation?
     var location: RMLocation?
     let image: String?
-}
-
-struct RMLocation: Codable {
-    var name: String?
-    let url: String?
-    var type: String?
-    var dimension: String?
 }
 
 extension RMCharacter {
@@ -45,31 +38,16 @@ extension RMCharacter {
     var locationsIds: [IdType] {
         var ids = [IdType]()
         if let originId = self.origin?.IdFromLocation {
-            ids.append(.origin(originId))
+            ids.append(.origin)
         }
         
         if let locationId = self.location?.IdFromLocation {
-            ids.append(.location(locationId))
+            ids.append(.location)
         }
         
         return ids
     }
 }
 
-extension RMLocation {
-    var IdFromLocation: Int? {
-        
-        guard let url = self.url else {
-            return nil
-        }
-        
-        if let idRange = url.range(of: "location/[0-9]+", options: .regularExpression),
-           let idSubstring = url[idRange].split(separator: "/").last,
-           let id = Int(idSubstring) {
-            return id
-        }
-        return nil
-    }
-}
-    
+
 

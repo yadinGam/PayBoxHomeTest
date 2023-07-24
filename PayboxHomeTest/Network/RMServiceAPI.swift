@@ -31,25 +31,24 @@ protocol RickAndMortyApi {
 }
 
 class RMService: RickAndMortyApi {
-    
     private let baseUrl: String = "https://rickandmortyapi.com/api/"
     private let characterEndPoint = "character/"
     private let locationEndPoint = "location/"
     private let lowerBound = 1
     private let upperBound = 826
     
-    func getCharacters(by amount: Int, completion: @escaping RMCharactersCompletion) {
-        let idsList = generateRandomNumbers(by: amount, from: lowerBound, to: upperBound).map { String($0) }.joined(separator: ",")
-        
-        let fullUrl = baseUrl+characterEndPoint+idsList
-        
-        guard let url = URL(string: fullUrl) else {
-            return completion(.failure(.invalidURL))
+    private func buildFullUrl(endpoint: String, idsList: String) -> URL? {
+        let fullUrl = baseUrl + endpoint + idsList
+        return URL(string: fullUrl)
+    }
+    
+    private func fetchData<T: Decodable>(from url: URL?, completion: @escaping (PBResult<T>) -> Void) {
+        guard let url = url else {
+            completion(.failure(.invalidURL))
+            return
         }
         
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { (data, response, error) in
-            
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(.networkError(error)))
                 return
@@ -61,7 +60,7 @@ class RMService: RickAndMortyApi {
             }
             
             do {
-                let decodedObject = try JSONDecoder().decode([RMCharacter].self, from: data)
+                let decodedObject = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(decodedObject))
             } catch {
                 completion(.failure(.serializationError(error)))
@@ -70,69 +69,36 @@ class RMService: RickAndMortyApi {
         
         task.resume()
     }
-
+    
+    func getCharacters(by amount: Int, completion: @escaping RMCharactersCompletion) {
+        guard amount >= lowerBound && amount <= upperBound else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        let idsList = generateRandomNumbers(by: amount, from: lowerBound, to: upperBound).map { String($0) }.joined(separator: ",")
+        let fullUrl = buildFullUrl(endpoint: characterEndPoint, idsList: idsList)
+        
+        fetchData(from: fullUrl) { (result: PBResult<[RMCharacter]>) in
+            completion(result)
+        }
+    }
+    
     func getLocation(by ids: [Int], completion: @escaping RMLocationCompletion) {
         let idsList = ids.map { String($0) }.joined(separator: ",")
-        let fullUrl = baseUrl+locationEndPoint+idsList
+        let fullUrl = buildFullUrl(endpoint: locationEndPoint, idsList: idsList)
         
-        guard let url = URL(string: fullUrl) else {
-            return completion(.failure(.invalidURL))
+        fetchData(from: fullUrl) { (result: PBResult<RMLocation>) in
+            completion(result)
         }
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { (data, response, error) in
-            
-            if let error = error {
-                completion(.failure(.networkError(error)))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.dataNotFound))
-                return
-            }
-            
-            do {
-                let decodedObject = try JSONDecoder().decode(RMLocation.self, from: data)
-                completion(.success(decodedObject))
-            } catch {
-                completion(.failure(.serializationError(error)))
-            }
-        }
-        
-        task.resume()
     }
     
     func getLocations(by ids: [Int], completion: @escaping RMLocationsCompletion) {
         let idsList = ids.map { String($0) }.joined(separator: ",")
-        let fullUrl = baseUrl+locationEndPoint+idsList
+        let fullUrl = buildFullUrl(endpoint: locationEndPoint, idsList: idsList)
         
-        guard let url = URL(string: fullUrl) else {
-            return completion(.failure(.invalidURL))
+        fetchData(from: fullUrl) { (result: PBResult<[RMLocation]>) in
+            completion(result)
         }
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { (data, response, error) in
-            
-            if let error = error {
-                completion(.failure(.networkError(error)))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.dataNotFound))
-                return
-            }
-            
-            do {
-                let decodedObject = try JSONDecoder().decode([RMLocation].self, from: data)
-                completion(.success(decodedObject))
-            } catch {
-                completion(.failure(.serializationError(error)))
-            }
-        }
-        
-        task.resume()
     }
-    
 }
