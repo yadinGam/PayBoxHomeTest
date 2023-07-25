@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IdType {
+enum LocationType {
     case origin
     case location
 }
@@ -35,8 +35,8 @@ extension RMCharacter {
         return ids
     }
     
-    var locationsIds: [IdType] {
-        var ids = [IdType]()
+    var locationsIds: [LocationType] {
+        var ids = [LocationType]()
         if let _ = self.origin?.IdFromLocation {
             ids.append(.origin)
         }

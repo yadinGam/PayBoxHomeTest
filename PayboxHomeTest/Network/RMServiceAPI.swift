@@ -21,13 +21,11 @@ enum PBError: Error {
 }
 
 typealias RMCharactersCompletion = (PBResult<[RMCharacter]>) ->()
-typealias RMLocationCompletion = (PBResult<RMLocation>) ->()
 typealias RMLocationsCompletion = (PBResult<[RMLocation]>) ->()
 
 protocol RickAndMortyApi {
     func getCharacters(by amount: Int, completion: @escaping RMCharactersCompletion)
     func getLocations(by ids: [Int], completion: @escaping RMLocationsCompletion)
-    func getLocation(by ids: [Int], completion: @escaping RMLocationCompletion)
 }
 
 class RMService: RickAndMortyApi {
@@ -38,7 +36,7 @@ class RMService: RickAndMortyApi {
     private let upperBound = 826
     
     private func buildFullUrl(endpoint: String, idsList: String) -> URL? {
-        let fullUrl = baseUrl + endpoint + idsList
+        let fullUrl = baseUrl + endpoint + "[\(idsList)]"
         return URL(string: fullUrl)
     }
     
@@ -80,15 +78,6 @@ class RMService: RickAndMortyApi {
         let fullUrl = buildFullUrl(endpoint: characterEndPoint, idsList: idsList)
         
         fetchData(from: fullUrl) { (result: PBResult<[RMCharacter]>) in
-            completion(result)
-        }
-    }
-    
-    func getLocation(by ids: [Int], completion: @escaping RMLocationCompletion) {
-        let idsList = ids.map { String($0) }.joined(separator: ",")
-        let fullUrl = buildFullUrl(endpoint: locationEndPoint, idsList: idsList)
-        
-        fetchData(from: fullUrl) { (result: PBResult<RMLocation>) in
             completion(result)
         }
     }

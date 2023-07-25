@@ -34,23 +34,22 @@ class CharacterDetailsViewController: UIViewController, Storyborded {
         }
         
         self.nameLabel.text = viewModel.name
-        
-        if (viewModel.status.lowercased() == "dead") {
-            self.statusLabel.textColor = .red
-        } else if (viewModel.status.lowercased() == "alive") {
-            self.statusLabel.textColor = .green
-        }
-        
+        self.setStatusColor(by: viewModel.status.lowercased())
         self.statusLabel.text = viewModel.status
-        
-        self.characterImageView.sd_setImage(with: viewModel.imageUrl, placeholderImage: UIImage(named: "placeholder.png"))
-        
+        self.characterImageView.sd_setImage(with: viewModel.imageUrl, placeholderImage: UIImage(named: Images.defaultImage))
         self.originNameLabel.text = viewModel.originName
         self.originTypeLabel.text = viewModel.originType
         self.originDimensionLabel.text = viewModel.originDimesion
-        
         self.locationNameLabel.text = viewModel.locationName
         self.locationTypeLabel.text = viewModel.locationType
         self.locationDimensionLabel.text = viewModel.locationDimesion
+    }
+    
+    private func setStatusColor(by status: String) {
+        if (status == "dead") {
+            self.statusLabel.textColor = .red
+        } else if (status == "alive") {
+            self.statusLabel.textColor = .green
+        }
     }
 }

@@ -45,15 +45,15 @@ class CharactersViewModel: CharactersViewModelProtocol {
             
             self?.loadingBehavior.accept(false)
             
-                switch result {
-                    
-                case .success(let items):
-                    DispatchQueue.main.async {
-                        self?.charactersViewModels.accept(items)
-                    }
-                case .failure(let error):
-                    self?.errorBehavior.accept(error)
+            switch result {
+                
+            case .success(let items):
+                DispatchQueue.main.async {
+                    self?.charactersViewModels.accept(items)
                 }
+            case .failure(let error):
+                self?.errorBehavior.accept(error)
+            }
         }
     }
     
@@ -62,72 +62,47 @@ class CharactersViewModel: CharactersViewModelProtocol {
         let locationsIds = self.charactersViewModels.value[index].locationsIds
         let locationsIdsNumbers = self.charactersViewModels.value[index].locationsIdsNumbers
         
-        if (locationsIdsNumbers.count == 0) {
+        guard locationsIdsNumbers.count >= 1 else {
             self.selectedDetails.onNext(self.charactersViewModels.value[index])
             loadingBehavior.accept(false)
-        } else if(locationsIdsNumbers.count == 1) {
+            return
+        }
+        
+        RMService().getLocations(by: locationsIdsNumbers) { [weak self] result in
             
-            RMService().getLocation(by: locationsIdsNumbers) { [weak self] result in
-                
-                guard let self = self else {
-                    return
-                }
-                
-                self.loadingBehavior.accept(false)
-                
-                switch result {
-                    
-                case .success(let item):
-                    var currentSelectedCharacter = self.charactersViewModels.value[index]
-                    switch locationsIds[0] {
-                        
-                    case .origin:
-                        currentSelectedCharacter.origin?.name = item.name
-                        currentSelectedCharacter.origin?.type = item.type
-                        currentSelectedCharacter.origin?.dimension = item.dimension
-                    case .location:
-                        currentSelectedCharacter.location?.name = item.name
-                        currentSelectedCharacter.location?.type = item.type
-                        currentSelectedCharacter.location?.dimension = item.dimension
-                    }
-                
-                    self.selectedDetails.onNext(currentSelectedCharacter)
-                case .failure(let error):
-                    self.loadingBehavior.accept(false)
-                    self.errorBehavior.accept(error)
-                    break
-                }
-                
+            guard let self = self else {
+                return
             }
-        } else if(locationsIdsNumbers.count > 1) {
-            RMService().getLocations(by: locationsIdsNumbers) { [weak self] result in
+            
+            self.loadingBehavior.accept(false)
+            
+            switch result {
                 
-                guard let self = self else {
-                    return
-                }
+            case .success(let items):
                 
-                self.loadingBehavior.accept(false)
+                var currentSelectedCharacter = self.charactersViewModels.value[index]
                 
-                switch result {
-                    
-                case .success(let items):
-                    var currentSelectedCharacter = self.charactersViewModels.value[index]
-                    currentSelectedCharacter.origin?.name = items.first?.name
-                    currentSelectedCharacter.origin?.type = items.first?.type
-                    currentSelectedCharacter.origin?.dimension = items.first?.dimension
-                    
-                    currentSelectedCharacter.location?.name = items.count == 1 ? items.first?.name : items[1].name
-                    currentSelectedCharacter.location?.type = items.count == 1 ? items.first?.type : items[1].type
-                    currentSelectedCharacter.location?.dimension = items.count == 1 ? items.first?.dimension : items[1].dimension
-                    
-                    self.selectedDetails.onNext(currentSelectedCharacter)
-                case .failure(let error):
-                    self.loadingBehavior.accept(false)
-                    DispatchQueue.main.async {
-                        self.errorBehavior.accept(error)
+                let originId = currentSelectedCharacter.origin?.IdFromLocation
+                let locationId = currentSelectedCharacter.location?.IdFromLocation
+                
+                items.forEach {
+                    if ($0.IdFromLocation == originId) {
+                        currentSelectedCharacter.origin?.name = $0.name
+                        currentSelectedCharacter.origin?.type = $0.type
+                        currentSelectedCharacter.origin?.dimension = $0.dimension
                     }
-                    break
+                    
+                    if ($0.IdFromLocation == locationId) {
+                        currentSelectedCharacter.location?.name = $0.name
+                        currentSelectedCharacter.location?.type = $0.type
+                        currentSelectedCharacter.location?.dimension = $0.dimension
+                    }
                 }
+                
+                self.selectedDetails.onNext(currentSelectedCharacter)
+            case .failure(let error):
+                self.errorBehavior.accept(error)
+                break
             }
         }
     }

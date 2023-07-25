@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Images {
+    static let defaultImage = "placeholder.png"
+}
+
 func generateRandomNumbers(by amount: Int, from lowerBound: Int, to upperBound: Int) -> [Int] {
     var randomNumbers = [Int]()
     
