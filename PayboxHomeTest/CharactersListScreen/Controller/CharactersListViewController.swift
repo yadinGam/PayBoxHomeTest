@@ -14,7 +14,6 @@ class CharactersListViewController: UIViewController, Alertable, Storyborded {
     @IBOutlet weak var charactersTableView: UITableView!
     
     private var indicatorView = UIActivityIndicatorView()
-    private var characters: [RMCharacter]?
     private var viewModel: CharactersViewModelProtocol?
     private var bag = DisposeBag()
     

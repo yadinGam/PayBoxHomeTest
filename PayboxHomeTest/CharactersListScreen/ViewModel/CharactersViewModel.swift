@@ -59,7 +59,6 @@ class CharactersViewModel: CharactersViewModelProtocol {
     
     func fetchLocations(by index: Int) {
         loadingBehavior.accept(true)
-        let locationsIds = self.charactersViewModels.value[index].locationsIds
         let locationsIdsNumbers = self.charactersViewModels.value[index].locationsIdsNumbers
         
         guard locationsIdsNumbers.count >= 1 else {
